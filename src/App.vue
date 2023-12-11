@@ -1,26 +1,15 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+   import TabNav from './components/TabNav.vue';
+   import { useRoute } from 'vue-router';
+   const route = useRoute()
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<template>
+  <!-- 一级路由出口组件 -->
+  <TabNav v-show="route.meta.showTab"/>
+  <RouterView />
+</template>
+
+<style scoped>
+
 </style>
